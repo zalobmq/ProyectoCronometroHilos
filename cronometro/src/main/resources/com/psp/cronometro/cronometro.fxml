@@ -21,7 +21,7 @@
           <RowConstraints maxHeight="144.60001220703123" minHeight="10.0" prefHeight="120.60001220703123" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="00:00:00" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+            <Label style="-fx-border-color: black; -fx-border-radius: 10px;" text=" 00:00:00 " GridPane.halignment="CENTER" GridPane.rowIndex="1">
                <font>
                   <Font size="96.0" />
                </font>
