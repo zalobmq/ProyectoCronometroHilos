@@ -7,11 +7,13 @@ import javafx.application.Platform;
 
 
 public class Contador implements Runnable {
+	
 	//
 	private IntegerProperty hora;
 	private IntegerProperty minuto;
 	private IntegerProperty segundo;
-	//
+	
+	//Texto que se mostrara por pantalla
 	private StringProperty StringHora;
 	private StringProperty StringMinuto;
 	private StringProperty StringSegundo;
@@ -81,6 +83,17 @@ public class Contador implements Runnable {
 			
 			Platform.runLater(() -> {
 				segundo.set(segundo.get() + 1);
+				
+				/*
+				 * Si los segundos son menos de 10, 
+				 * imprimira un 0 delante del segundo en caso contrario implimira los segundos.
+				 * 
+				 * Para conseguir el formato: 
+				 * 
+				 * -En caso de ser menor de 10: 00:00:02
+				 * - En caso de ser mayor de 10: 00:00:12
+				 * 
+				 * */
 				if(segundo.get()<10) {
 					StringSegundo.set("0"+segundo.get());
 				}else {
@@ -88,7 +101,12 @@ public class Contador implements Runnable {
 				}
 				
 			});
-
+			/*
+			 * Cuando los segundos sean igual a 59,aumentara en 1 los minutos
+			 * la cuenta se segundos se pondra a 0 y volvera a empezar, asi sucesibamente.
+			 * 
+			 * Y para imprimir el tiempo usuaremos el mismo sistema explicado antes.
+			 * */
 			if (segundo.get() == 59) {
 				Platform.runLater(() -> {
 					minuto.set(minuto.get() + 1);

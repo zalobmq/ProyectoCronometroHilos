@@ -37,7 +37,7 @@
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="botonParar" mnemonicParsing="false" onAction="#Pausar" prefHeight="46.0" prefWidth="125.0" text="PAUSAR" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                  <Button fx:id="botonPausar" mnemonicParsing="false" onAction="#Pausar" prefHeight="46.0" prefWidth="125.0" text="PAUSAR" GridPane.columnIndex="1" GridPane.halignment="CENTER">
                      <font>
                         <Font size="18.0" />
                      </font>

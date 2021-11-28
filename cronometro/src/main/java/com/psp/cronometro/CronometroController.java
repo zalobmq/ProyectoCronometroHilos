@@ -21,7 +21,7 @@ public class CronometroController {
 	@FXML
 	private Button botonIniciar;
 	@FXML
-	private Button botonParar;
+	private Button botonPausar;
 	@FXML
 	private Button botonReiniciar;
 
@@ -29,8 +29,8 @@ public class CronometroController {
 	Thread t = new Thread(c);
 	boolean result=false;
 
+	//Texto para los botones
 	private String iniciar = "INICIAR";
-	
 	private String contando = "CONTANDO";
 	private String pausar = "PAUSAR";
 	private String reanudar = "REANUDAR";
@@ -38,11 +38,8 @@ public class CronometroController {
 
 	@FXML
 	protected void initialize() {
-		
 	
-		
-			
-
+		//logo app
 		Image a = new Image(App.class.getResourceAsStream("icono.png"));
 		imageView1.setImage(a);
 
@@ -50,7 +47,13 @@ public class CronometroController {
 		Label_Minuto.textProperty().bind(c.getFraseMinuto());
 		Label_Segundo.textProperty().bind(c.getFraseSegundo());
 		
-		
+		//CAMBIAR COLOR DE BOTON
+		 botonIniciar.setStyle("-fx-background-color: MediumSeaGreen");
+		 
+		//HABILITAR O DESHABILITAR BOTONES
+		 botonPausar.setDisable(true);
+		 botonReiniciar.setDisable(true);
+		 
 
 	}
 
@@ -61,21 +64,26 @@ public class CronometroController {
 	
 		c.suspendido.setSuspendido(false);
 
-			
-			
-		
-
 		Label_Hora.textProperty().bind(c.getFraseHora());
 		Label_Minuto.textProperty().bind(c.getFraseMinuto());
 		Label_Segundo.textProperty().bind(c.getFraseSegundo());
+		
+		//HABILITAR O DESHABILITAR BOTONES
 		botonIniciar.setDisable(true);
-		botonParar.setDisable(false);
+		botonPausar.setDisable(false);
+		botonReiniciar.setDisable(false);
+		
+		//AÑADIR TEXTO A BOTONES
 		botonIniciar.setText(contando);
+		botonIniciar.setStyle("");
+		//CAMBIAR COLOR DE BOTON
+		botonPausar.setStyle("-fx-background-color: ORANGERED");
+		botonReiniciar.setStyle("-fx-background-color: 	LIGHTSKYBLUE");
 	}
 
 
 	public void Pausar() {
-		if (botonParar.getText().toString().equals(pausar)) {
+		if (botonPausar.getText().toString().equals(pausar)) {
 	
 			c.suspendido.setSuspendido(true);
 			
@@ -86,19 +94,26 @@ public class CronometroController {
 			botonIniciar.setDisable(true);
 			
 			
-			botonParar.setText(reanudar);
+			botonPausar.setText(reanudar);
 			botonReiniciar.setDisable(true);
+			//CAMBIAR COLOR DE BOTON
+			botonPausar.setStyle("-fx-background-color: MediumSeaGreen");
 			
-		} else if (botonParar.getText().toString().equals(reanudar)) {
+		} else if (botonPausar.getText().toString().equals(reanudar)) {
+			//CAMBIAR COLOR DE BOTON
+			botonPausar.setStyle("-fx-background-color: ORANGERED");
+			
 			c.suspendido.setSuspendido(false);
 			
 			Label_Hora.textProperty().bind(c.getFraseHora());
 			Label_Minuto.textProperty().bind(c.getFraseMinuto());
 			Label_Segundo.textProperty().bind(c.getFraseSegundo());
 			
-			botonIniciar.setDisable(true);
+			//AÑADIR TEXTO A BOTONES
+			botonPausar.setText(pausar);
 			
-			botonParar.setText(pausar);
+			//HABILITAR O DESHABILITAR BOTONES
+			botonIniciar.setDisable(true);
 			botonReiniciar.setDisable(false);
 		}
 
@@ -106,33 +121,35 @@ public class CronometroController {
 	public void Reiniciar() {
 		
 
-c.suspendido.setSuspendido(true);
-	t.interrupt();
+		c.suspendido.setSuspendido(true);
+		t.interrupt();
 
 		c.setHora(new SimpleIntegerProperty(0));
 		c.setMinuto(new SimpleIntegerProperty(0));
 		c.setSegundo(new SimpleIntegerProperty(0));
 
-		
+		/*
+		 * Comprobar valor de Hora,Minuto y segundo 
+		 * 
 		System.out.println(c.getHora().toString());
 		System.out.println(c.getMinuto().toString());
 		System.out.println(c.getSegundo().toString());
-
+		 */
 	
 		Label_Hora.textProperty().bind(c.getFraseHora());
 		Label_Minuto.textProperty().bind(c.getFraseMinuto());
 		Label_Segundo.textProperty().bind(c.getFraseSegundo());
 		
-		botonIniciar.setDisable(false);
-		
-		
-		
-	
-		
+		//AÑADIR TEXTO A BOTONES
 		botonIniciar.setText(iniciar);
 		
+		//HABILITAR O DESHABILITAR BOTONES
+		botonPausar.setDisable(true);
 		botonIniciar.setDisable(false);
-		botonParar.setDisable(true);
+		
+		//CAMBIAR COLOR DE BOTON
+		botonIniciar.setStyle("-fx-background-color: MediumSeaGreen");
+
 		
 	}
 
