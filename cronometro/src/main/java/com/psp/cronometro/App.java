@@ -20,7 +20,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("cronometro"), 500, 300);
+        scene = new Scene(loadFXML("cronometro"), 600, 400);
         stage.setScene(scene);
       stage.getIcons().add(new Image(Objects.requireNonNull(App.class.getResourceAsStream("icono.png"))));
         stage.setTitle("App Cronometro");

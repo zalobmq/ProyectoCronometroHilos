@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
@@ -21,11 +22,6 @@
           <RowConstraints maxHeight="144.60001220703123" minHeight="10.0" prefHeight="120.60001220703123" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label style="-fx-border-color: black; -fx-border-radius: 10px;" text=" 00:00:00 " GridPane.halignment="CENTER" GridPane.rowIndex="1">
-               <font>
-                  <Font size="96.0" />
-               </font>
-            </Label>
             <GridPane GridPane.rowIndex="2">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -36,17 +32,17 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="98.0" text="INICIAR" GridPane.halignment="CENTER">
+                  <Button fx:id="botonIniciar" mnemonicParsing="false" onAction="#Iniciar" prefHeight="46.0" prefWidth="125.0" text="INICIAR" GridPane.halignment="CENTER">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="98.0" text="PAUSAR" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                  <Button fx:id="botonParar" mnemonicParsing="false" onAction="#Pausar" prefHeight="46.0" prefWidth="125.0" text="PAUSAR" GridPane.columnIndex="1" GridPane.halignment="CENTER">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="110.0" text="REINICIAR" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+                  <Button fx:id="botonReiniciar" mnemonicParsing="false" onAction="#Reiniciar" prefHeight="46.0" prefWidth="110.0" text="REINICIAR" GridPane.columnIndex="2" GridPane.halignment="CENTER">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -54,6 +50,51 @@
                </children>
             </GridPane>
             <ImageView fx:id="imageView1" fitHeight="71.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" />
+            <GridPane prefHeight="194.0" prefWidth="586.0" GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="250.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="115.20001220703125" minWidth="10.0" prefWidth="48.000024414062494" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="162.99996337890624" minWidth="10.0" prefWidth="132.79997558593746" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="109.4000244140625" minWidth="10.0" prefWidth="57.40003662109376" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="250.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text=":" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                     <font>
+                        <Font size="96.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="52.0" layoutY="55.0" text=":" GridPane.columnIndex="3" GridPane.halignment="CENTER">
+                     <font>
+                        <Font size="96.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="Label_Hora" text="00" GridPane.halignment="RIGHT">
+                     <font>
+                        <Font size="96.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Label>
+                  <Label fx:id="Label_Minuto" text="00" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+                     <font>
+                        <Font size="96.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="Label_Segundo" text="00" GridPane.columnIndex="4" GridPane.halignment="LEFT">
+                     <font>
+                        <Font size="96.0" />
+                     </font>
+                  </Label>
+               </children>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </GridPane>
          </children>
       </GridPane>
    </children>

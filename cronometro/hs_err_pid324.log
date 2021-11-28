@@ -1,0 +1,218 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 266338304 bytes for G1 virtual space
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Zero Based Compressed Oops mode in which the Java heap is
+#     placed in the first 32GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 32GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (./open/src/hotspot/os/windows/os_windows.cpp:3472), pid=324, tid=4768
+#
+# JRE version:  (15.0.1+9) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (15.0.1+9-18, mixed mode, sharing, tiered, compressed oops, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dfile.encoding=UTF-8 --module-path=C:\Users\gbret\git\repository3\cronometro\target\classes;C:\Users\gbret\.m2\repository\org\openjfx\javafx-controls\15.0.1\javafx-controls-15.0.1-win.jar;C:\Users\gbret\.m2\repository\org\openjfx\javafx-graphics\15.0.1\javafx-graphics-15.0.1-win.jar;C:\Users\gbret\.m2\repository\org\openjfx\javafx-base\15.0.1\javafx-base-15.0.1-win.jar;C:\Users\gbret\.m2\repository\org\openjfx\javafx-fxml\15.0.1\javafx-fxml-15.0.1-win.jar -XX:+ShowCodeDetailsInExceptionMessages -Djdk.module.main=com.psp.cronometro com.psp.cronometro/com.psp.cronometro.App
+
+Host: Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz, 12 cores, 15G,  Windows 10 , 64 bit Build 22000 (10.0.22000.318)
+Time: Sat Nov 27 15:22:36 2021 Hora estándar romance elapsed time: 0.008929 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000001643788d400):  JavaThread "Unknown thread" [_thread_in_vm, id=4768, stack(0x000000486a400000,0x000000486a500000)]
+
+Stack: [0x000000486a400000,0x000000486a500000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x62ae9a]
+V  [jvm.dll+0x781389]
+V  [jvm.dll+0x782ae3]
+V  [jvm.dll+0x783143]
+V  [jvm.dll+0x216265]
+V  [jvm.dll+0x6281d9]
+V  [jvm.dll+0x61cd15]
+V  [jvm.dll+0x2d01fd]
+V  [jvm.dll+0x2d0062]
+V  [jvm.dll+0x2d603c]
+V  [jvm.dll+0x325b2a]
+V  [jvm.dll+0x3251f4]
+V  [jvm.dll+0x2a717a]
+V  [jvm.dll+0x2a8318]
+V  [jvm.dll+0x75e101]
+V  [jvm.dll+0x3343e4]
+V  [jvm.dll+0x73e826]
+V  [jvm.dll+0x3b7777]
+V  [jvm.dll+0x3b9201]
+C  [jli.dll+0x52fb]
+C  [ucrtbase.dll+0x26c0c]
+C  [KERNEL32.DLL+0x154e0]
+C  [ntdll.dll+0x485b]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007ffa41e34ff0, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x0000016437b02f10 GCTaskThread "GC Thread#0" [stack: 0x000000486a500000,0x000000486a600000] [id=14032]
+  0x0000016437b14f00 ConcurrentGCThread "G1 Main Marker" [stack: 0x000000486a600000,0x000000486a700000] [id=19604]
+  0x0000016437b16290 ConcurrentGCThread "G1 Conc#0" [stack: 0x000000486a700000,0x000000486a800000] [id=18848]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffa41628047]
+
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x000001643788b930] Heap_lock - owner thread: 0x000001643788d400
+
+Heap address: 0x0000000702600000, size: 4058 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 0.
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+Heap:
+ garbage-first heap   total 260096K, used 0K [0x0000000702600000, 0x0000000800000000)
+  region size 2048K, 0 young (0K), 0 survivors (0K)
+ Metaspace       used 0K, capacity 0K, committed 0K, reserved 0K
+  class space    used 0K, capacity 0K, committed 0K, reserved 0K
+
+Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, OA=open archive, CA=closed archive, TAMS=top-at-mark-start (previous, next)
+
+Card table byte_map: [0x0000016451940000,0x0000016452130000] _byte_map_base: 0x000001644e12d000
+
+Marking Bits (Prev, Next): (CMBitMap*) 0x0000016437b03780, (CMBitMap*) 0x0000016437b037c0
+ Prev Bits: [0x0000016452920000, 0x0000016456888000)
+ Next Bits: [0x0000016456890000, 0x000001645a7f8000)
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (1 events):
+Event: 0.005 Loaded shared library C:\Program Files\Java\jdk-15.0.1\bin\java.dll
+
+
+Dynamic libraries:
+0x00007ff6da120000 - 0x00007ff6da12f000 	C:\Program Files\Java\jdk-15.0.1\bin\javaw.exe
+0x00007ffab5260000 - 0x00007ffab5467000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffab3e60000 - 0x00007ffab3f1d000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffab2c50000 - 0x00007ffab2fc4000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffab2ac0000 - 0x00007ffab2bd1000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffaa3e40000 - 0x00007ffaa3e59000 	C:\Program Files\Java\jdk-15.0.1\bin\VCRUNTIME140.dll
+0x00007ffa95190000 - 0x00007ffa951a8000 	C:\Program Files\Java\jdk-15.0.1\bin\jli.dll
+0x00007ffab4f00000 - 0x00007ffab4fac000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffab47f0000 - 0x00007ffab4893000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffab4610000 - 0x00007ffab46ad000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffab3c10000 - 0x00007ffab3d31000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffab3a60000 - 0x00007ffab3c0c000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffab2740000 - 0x00007ffab2766000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffa93880000 - 0x00007ffa93b25000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22000.120_none_9d947278b86cc467\COMCTL32.dll
+0x00007ffab4130000 - 0x00007ffab4159000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffab29a0000 - 0x00007ffab2ab2000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffab2fd0000 - 0x00007ffab306d000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffaacd20000 - 0x00007ffaacd2a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffab4160000 - 0x00007ffab4191000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ffaa3c70000 - 0x00007ffaa3c7c000 	C:\Program Files\Java\jdk-15.0.1\bin\vcruntime140_1.dll
+0x00007ffa89700000 - 0x00007ffa89791000 	C:\Program Files\Java\jdk-15.0.1\bin\msvcp140.dll
+0x00007ffa41370000 - 0x00007ffa41ece000 	C:\Program Files\Java\jdk-15.0.1\bin\server\jvm.dll
+0x00007ffab48a0000 - 0x00007ffab48a8000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffa98770000 - 0x00007ffa98779000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffaa8930000 - 0x00007ffaa8963000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffab48c0000 - 0x00007ffab492f000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffab1860000 - 0x00007ffab1878000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ffaadd10000 - 0x00007ffaadd1a000 	C:\Program Files\Java\jdk-15.0.1\bin\jimage.dll
+0x00007ffaaffc0000 - 0x00007ffab01e1000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ffa9d340000 - 0x00007ffa9d371000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ffab3070000 - 0x00007ffab30f0000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffaa4700000 - 0x00007ffaa4725000 	C:\Program Files\Java\jdk-15.0.1\bin\java.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\Java\jdk-15.0.1\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22000.120_none_9d947278b86cc467;C:\Program Files\Java\jdk-15.0.1\bin\server
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF-8 --module-path=C:\Users\gbret\git\repository3\cronometro\target\classes;C:\Users\gbret\.m2\repository\org\openjfx\javafx-controls\15.0.1\javafx-controls-15.0.1-win.jar;C:\Users\gbret\.m2\repository\org\openjfx\javafx-graphics\15.0.1\javafx-graphics-15.0.1-win.jar;C:\Users\gbret\.m2\repository\org\openjfx\javafx-base\15.0.1\javafx-base-15.0.1-win.jar;C:\Users\gbret\.m2\repository\org\openjfx\javafx-fxml\15.0.1\javafx-fxml-15.0.1-win.jar -XX:+ShowCodeDetailsInExceptionMessages -Djdk.module.main=com.psp.cronometro 
+java_command: com.psp.cronometro/com.psp.cronometro.App
+java_class_path (initial): C:\Users\gbret\.m2\repository\org\openjfx\javafx-controls\15.0.1\javafx-controls-15.0.1.jar;C:\Users\gbret\.m2\repository\org\openjfx\javafx-graphics\15.0.1\javafx-graphics-15.0.1.jar;C:\Users\gbret\.m2\repository\org\openjfx\javafx-base\15.0.1\javafx-base-15.0.1.jar;C:\Users\gbret\.m2\repository\org\openjfx\javafx-fxml\15.0.1\javafx-fxml-15.0.1.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 3                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 10                                        {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 2097152                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 266338304                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 4255121408                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 2097152                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5839372                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122909434                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122909434                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+     bool ShowCodeDetailsInExceptionMessages       = true                                   {manageable} {command line}
+   size_t SoftMaxHeapSize                          = 4255121408                             {manageable} {ergonomic}
+     bool UseCompressedClassPointers               = true                                 {lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                                 {lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk1.8.0_261
+PATH=C:/Program Files/Java/jdk-15.0.1/bin/server;C:/Program Files/Java/jdk-15.0.1/bin;C:\Python39\Scripts\;C:\Python39\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Users\gbret\AppData\Local\Android\Sdk\emulator;C:\Users\gbret\AppData\Local\Android\Sdk\platform-tools;C:\Users\gbret\AppData\Local\Android\Sdk\tools\bin;C:\Program Files\gradle-7.3\bin;C:\Users\gbret\AppData\Local\Microsoft\WindowsApps;;C:\Users\gbret\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\gbret\AppData\Roaming\npm;C:\WINDOWS\System32;
+USERNAME=gbret
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 158 Stepping 10, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 10 , 64 bit Build 22000 (10.0.22000.318)
+OS uptime: 1 days 22:56 hours
+
+CPU: total 12 (initial active 12) (6 cores per cpu, 2 threads per core) family 6 model 158 stepping 10 microcode 0xde, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, vzeroupper, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx, fma, clflush, clflushopt
+
+Memory: 4k page, system-wide physical 16229M (8154M free)
+TotalPageFile size 20341M (AvailPageFile size 231M)
+current process WorkingSet (physical memory assigned to process): 10M, peak: 10M
+current process commit charge ("private bytes"): 64M, peak: 318M
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (15.0.1+9-18) for windows-amd64 JRE (15.0.1+9-18), built on Sep 15 2020 14:43:54 by "mach5one" with unknown MS VC++:1925
+
+END.
